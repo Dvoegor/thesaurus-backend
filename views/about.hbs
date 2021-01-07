@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" type="image/png"
+          href="https://www.pngitem.com/pimgs/m/114-1145783_transparent-book-vector-png-book-icon-vector-png.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{title}}</title>
+</head>
+
+<body>
+<nav class="deep-purple lighten-4">
+    <a class="clear" href="/"><button class="btn waves-effect waves-light blue-grey darken-3" type="submit">Главная
+    </button></a>
+    <a class="clear" href="/about"><button class="btn waves-effect waves-light light-green darken-4" type="submit">О проекте
+    </button></a>
+    {{#if success}}
+        <span class="card-panel clear deep-purple lighten-1 ">{{email}}</span>
+        <form class="clear logs" action="logout" method="post">
+            <button class="btn waves-effect waves-light pink lighten-1" type="submit">Выйти
+            </button>
+        </form>
+        <a class="clear logs" href="/admin"><button class="btn waves-effect waves-light blue lighten-1" type="submit">Панель администратора
+        </button></a>
+    {{else}}
+        <form class="clear logs" action="loginAuth" method="post">
+            <button class="btn waves-effect waves-light green" type="submit">Войти
+            </button>
+        </form>
+    {{/if}}
+</nav>
+<div class="container">
+    <h1>О проекте</h1>
+    <p class="flow-text">Этот проект является наследником <a target="_blank" href="http://www.tesaurus.ru/">www.tesaurus.ru</a></p>
+</div>
+</body>
+</html>
