@@ -4,6 +4,29 @@ const pool = require('../pools/pool');
 const moment = require('moment')
 moment.locale('ru')
 
+// API
+
+router.get('/records', function (req, res, next) {
+    pool.query(`SELECT * FROM crossWords`, function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result)
+        }
+    });
+})
+
+router.get('/records/:id', function (req, res, next) {
+    const paramId = req.params.id
+    pool.query(`SELECT * FROM crossWords WHERE id=${paramId}`, function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result)
+        }
+    });
+})
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
     const page = req.query.page ? parseInt(req.query.page) : 1;
